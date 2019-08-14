@@ -21,7 +21,7 @@ export default function Month(props) {
   return (
 
     <div className="Month">
-
+    
       {weekdays
         .map(day =>
           <Weekday
@@ -46,8 +46,8 @@ export default function Month(props) {
             day={day}
             frontBlanks={frontBlanks}
             currentDay={currentDay}
-            showModal={showModal}
             key={day}
+            showModal={showModal}
           />
         )}
 
