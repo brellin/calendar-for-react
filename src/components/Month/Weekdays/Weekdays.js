@@ -1,9 +1,10 @@
 import React from 'react'
-
 import './Weekdays.scss'
 
 export default props => {
+
     return (
+
         <div
             className='day-name'
             style={{
@@ -12,5 +13,7 @@ export default props => {
                 background: props.background || props.backgroundColor || 'blue'
             }}
         >{props.day}</div>
+
     )
+
 }

@@ -1,13 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Weekday from './Weekdays'
 import FrontBlank from './FrontBlanks'
 import MonthDay from './MonthDays'
 import BackBlank from './BackBlanks'
+import Modal from '../Modal/Modal'
 import monthVars from './vars'
 import './Month.scss'
 
+
+
 export default function Month(props) {
+
+
+  const [show, setShow] = useState(false)
+
+  const showModal = () => {
+    setShow(!show)
+  }
 
   const { prevMonth, frontBlanks, backBlanks, monthDays, weekdays, currentDay } = monthVars(props.currentDate)
 
@@ -15,7 +25,13 @@ export default function Month(props) {
 
     <div className="Month">
 
-      {weekdays.map(day => <Weekday day={day} key={day} />)}
+      {weekdays
+        .map(day =>
+          <Weekday
+            day={day}
+            key={day}
+          />
+        )}
 
       {frontBlanks
         .map(blank =>
@@ -33,6 +49,7 @@ export default function Month(props) {
             day={day}
             frontBlanks={frontBlanks}
             currentDay={currentDay}
+            showModal={showModal}
             key={day}
           />
         )}
@@ -45,6 +62,11 @@ export default function Month(props) {
             key={blnk * Math.random()}
           />
         )}
+
+      <Modal
+        show={show}
+        handleClose={showModal}
+      />
 
     </div>
 
