@@ -43,6 +43,7 @@ export default function Month(props) {
             gridArea: `day${blnk + monthDays + 1}`,
             background: props.background || props.backgroundColor || 'inherit'
           }}
+          key={blnk * Math.random()}
         >{blnk + 1}</div>
       ))}
 
