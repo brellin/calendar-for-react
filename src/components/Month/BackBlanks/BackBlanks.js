@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 
 import '../Month.scss'
 import './BackBlanks.scss'
@@ -13,7 +14,7 @@ export default props => {
             style={{
                 gridArea: `day${blnk + props.monthDays}`
             }}
-            onClick={() => console.log(blnk)}
+            onClick={() => props.setCurrentDate(moment(`${props.month}-${blnk}`))}
         >{blnk}</div>
     )
 

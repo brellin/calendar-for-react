@@ -1,7 +1,7 @@
 import React from 'react'
-import './modal.scss'
+import moment from 'moment'
 
-
+import './Modal.scss'
 
 const Modal = props => {
 
@@ -16,7 +16,7 @@ const Modal = props => {
                 className="modal-main"
                 onClick={(e) => e.stopPropagation()}
             >
-                <h1>Modal</h1>
+                <h1>{moment(props.selected).format('MMMM Do YYYY')}</h1>
                 <button
                     type="button"
                     onClick={props.showModal}
