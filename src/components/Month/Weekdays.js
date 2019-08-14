@@ -1,4 +1,5 @@
 import React from 'react'
+import { white } from 'ansi-colors';
 
 export const Weekday = (props) => {
     return (
@@ -6,7 +7,8 @@ export const Weekday = (props) => {
             className='day-name'
             style={{
                 gridArea: `${props.day}`,
-                background: props.background || props.backgroundColor || 'linear-gradient(blue, lightslategrey)'
+                color: white,
+                background: props.background || props.backgroundColor
             }}
             key={props.day}
         >{props.day}</div>
