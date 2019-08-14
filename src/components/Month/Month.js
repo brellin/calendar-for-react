@@ -1,9 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 
+import Weekday from './Weekdays'
+import FrontBlank from './FrontBlanks'
+import MonthDay from './MonthDays'
+import BackBlank from './BackBlanks'
+import Modal from '../Modal/Modal'
 import monthVars from './vars'
 import './Month.scss'
 
+
+
 export default function Month(props) {
+
+
+  const [show, setShow] = useState(false)
+
+  const showModal = () => {
+    setShow(!show);
+  };
+
+  const hideModal = () => {
+    setShow(false);
+  };
 
   const { prevMonth, frontBlanks, backBlanks, monthDays, weekdays, currentDay } = monthVars(props.currentDate)
 
@@ -11,48 +29,39 @@ export default function Month(props) {
 
     <div className="Month">
 
-      {weekdays.map(day => (
-        <div
-          className='day-name'
-          style={{
-            gridArea: `${day}`,
-            background: props.background || props.backgroundColor || 'linear-gradient(blue, lightslategrey)'
-          }}
-          key={day}
-        >{day}</div>
-      ))}
+      {weekdays.map(day => <Weekday day={day} key={day} />)}
 
-      {frontBlanks.map(blnk => (
-        <div
-          className='day blank'
-          style={{
-            gridArea: `day${blnk + 1}`,
-            background: props.background || props.backgroundColor || 'inherit'
-          }}
-          key={blnk * Math.random()}
-        >{prevMonth - (frontBlanks.length - 1) + blnk}</div>
-      ))}
+      {frontBlanks
+        .map(blank =>
+          <FrontBlank
+            blank={blank}
+            prevMonth={prevMonth}
+            frontBlanks={frontBlanks}
+            key={blank * Math.random()}
+          />
+        )}
 
-      {monthDays.map(day => (
-        <div
-          className={`day${currentDay === day + '' ? ' active' : ''}`}
-          style={{
-            gridArea: `day${frontBlanks.length + day}`
-          }}
-          key={day}
-        >{day}</div>
-      ))}
+      {monthDays
+        .map(day =>
+          <MonthDay
+            day={day}
+            frontBlanks={frontBlanks}
+            currentDay={currentDay}
+            key={day}
+            showModal={showModal}
+          />
+        )}
 
-      {backBlanks.map(blnk => (
-        <div
-          className="day blank"
-          style={{
-            gridArea: `day${blnk + monthDays + 1}`,
-            background: props.background || props.backgroundColor || 'inherit'
-          }}
-        >{blnk + 1}</div>
-      ))}
+      {backBlanks
+        .map(blnk =>
+          <BackBlank
+            blnk={blnk}
+            monthDays={monthDays}
+            key={blnk * Math.random()}
+          />
+        )}
 
+      <Modal show={show} handleClose={hideModal} />
     </div>
 
   )

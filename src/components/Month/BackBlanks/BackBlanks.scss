@@ -1,0 +1,11 @@
+.day.blank{
+    color: gray;
+    background: #d3d3d3;
+    z-index: 1;
+    transition: .3s ease;
+
+    &:hover{
+    background: #c0c0c0;
+    color: gray;
+    }
+}

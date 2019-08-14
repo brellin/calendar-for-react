@@ -10,7 +10,7 @@ export default function App() {
 
     return (
         <>
-            <DatePicker setCurrentDate={setCurrentDate} />
+            <DatePicker currentDate={currentDate} setCurrentDate={setCurrentDate} />
             <Month currentDate={currentDate} setCurrentDate={setCurrentDate} />
         </>
     )
