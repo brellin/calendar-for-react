@@ -6,7 +6,7 @@ export default date => {
 
     const prevMonth = moment(date).subtract(1, 'month').daysInMonth()// Number of days in previous month
 
-    const firstDoM = moment(date).startOf('month').format('d')// Day of week of first day of month
+    const firstDoM = moment(date).startOf('month').format('d')// Day of week of first day of current month
 
     const frontBlanks = []// Number of days before first day of month
     for (let i = 0; i < firstDoM; i++) frontBlanks.push(i)
@@ -19,6 +19,8 @@ export default date => {
     const monthDays = []// Days in current month
     for (let i = 1; i <= daysInMonth; i++) monthDays.push(i)
 
-    return { prevMonth, frontBlanks, backBlanks, monthDays, weekdays }
+    const currentDay = moment(date).format('D')
+
+    return { prevMonth, frontBlanks, backBlanks, monthDays, weekdays, currentDay }
 
 }

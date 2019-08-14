@@ -5,7 +5,7 @@ import './Month.scss'
 
 export default function Month(props) {
 
-  const { prevMonth, frontBlanks, backBlanks, monthDays, weekdays } = monthVars(props.currentDate)
+  const { prevMonth, frontBlanks, backBlanks, monthDays, weekdays, currentDay } = monthVars(props.currentDate)
 
   return (
 
@@ -14,7 +14,10 @@ export default function Month(props) {
       {weekdays.map(day => (
         <div
           className='day-name'
-          style={{ gridArea: `${day}` }}
+          style={{
+            gridArea: `${day}`,
+            background: props.background || props.backgroundColor || 'linear-gradient(blue, lightslategrey)'
+          }}
           key={day}
         >{day}</div>
       ))}
@@ -22,15 +25,20 @@ export default function Month(props) {
       {frontBlanks.map(blnk => (
         <div
           className='day blank'
-          style={{ gridArea: `day${blnk + 1}` }}
+          style={{
+            gridArea: `day${blnk + 1}`,
+            background: props.background || props.backgroundColor || 'inherit'
+          }}
           key={blnk * Math.random()}
         >{prevMonth - (frontBlanks.length - 1) + blnk}</div>
       ))}
 
       {monthDays.map(day => (
         <div
-          className="day"
-          style={{ gridArea: `day${frontBlanks.length + day}` }}
+          className={`day${currentDay === day + '' ? ' active' : ''}`}
+          style={{
+            gridArea: `day${frontBlanks.length + day}`
+          }}
           key={day}
         >{day}</div>
       ))}
@@ -38,7 +46,10 @@ export default function Month(props) {
       {backBlanks.map(blnk => (
         <div
           className="day blank"
-          style={{ gridArea: `day${blnk + monthDays + 1}` }}
+          style={{
+            gridArea: `day${blnk + monthDays + 1}`,
+            background: props.background || props.backgroundColor || 'inherit'
+          }}
         >{blnk + 1}</div>
       ))}
 
