@@ -1,6 +1,7 @@
 import React from 'react'
 import { Weekday } from './Weekdays'
 import { FrontBlank } from './FrontBlanks'
+import { MonthDay } from './MonthDays'
 import monthVars from './vars'
 import './Month.scss'
 
@@ -21,13 +22,7 @@ export default function Month(props) {
       ))}
 
       {monthDays.map(day => (
-        <div
-          className={`day${currentDay === day + '' ? ' active' : ''}`}
-          style={{
-            gridArea: `day${frontBlanks.length + day}`
-          }}
-          key={day}
-        >{day}</div>
+        <MonthDay day={day} frontBlanks={frontBlanks} currentDay={currentDay} />
       ))}
 
       {backBlanks.map(blnk => (
