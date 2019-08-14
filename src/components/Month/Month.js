@@ -18,8 +18,7 @@ export default function Month(props) {
         <div
           className='day blank'
           style={{
-            gridArea: `day${blnk + 1}`,
-            background: props.background || props.backgroundColor || 'inherit'
+            gridArea: `day${blnk + 1}`
           }}
           key={blnk * Math.random()}
         >{prevMonth - (frontBlanks.length - 1) + blnk}</div>
@@ -39,8 +38,7 @@ export default function Month(props) {
         <div
           className="day blank"
           style={{
-            gridArea: `day${blnk + monthDays + 1}`,
-            background: props.background || props.backgroundColor || 'inherit'
+            gridArea: `day${blnk + monthDays + 1}`
           }}
           key={blnk * Math.random()}
         >{blnk + 1}</div>
