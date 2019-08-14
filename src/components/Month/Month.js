@@ -2,6 +2,7 @@ import React from 'react'
 import { Weekday } from './Weekdays'
 import { FrontBlank } from './FrontBlanks'
 import { MonthDay } from './MonthDays'
+import { BackBlank } from './BackBlanks'
 import monthVars from './vars'
 import './Month.scss'
 
@@ -26,14 +27,7 @@ export default function Month(props) {
       ))}
 
       {backBlanks.map(blnk => (
-        <div
-          className="day blank"
-          style={{
-            gridArea: `day${blnk + monthDays + 1}`,
-            background: props.background || props.backgroundColor || 'inherit'
-          }}
-          key={blnk * Math.random()}
-        >{blnk + 1}</div>
+        <BackBlank blnk={blnk} monthDays={monthDays} />
       ))}
 
     </div>
