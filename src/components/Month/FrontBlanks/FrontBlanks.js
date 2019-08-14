@@ -5,14 +5,15 @@ import './FrontBlanks.scss'
 
 export default props => {
 
+    const blank = props.blank + 1
+
     return (
         <div
             className='day blank'
             style={{
-                gridArea: `day${props.blank + 1}`
+                gridArea: `day${blank}`
             }}
-            key={props.blank * Math.random()}
-        >{props.prevMonth - (props.frontBlanks.length - 1) + props.blank}</div>
+        >{props.prevMonth - props.frontBlanks.length + blank}</div>
     )
 
 }

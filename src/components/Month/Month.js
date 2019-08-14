@@ -29,26 +29,36 @@ export default function Month(props) {
 
     <div className="Month">
 
-      {weekdays.map(day => <Weekday day={day} />)}
+      {weekdays.map(day => <Weekday day={day} key={day} />)}
 
-      {frontBlanks.map(blank => <FrontBlank
-        blank={blank}
-        prevMonth={prevMonth}
-        frontBlanks={frontBlanks}
+      {frontBlanks
+        .map(blank =>
+          <FrontBlank
+            blank={blank}
+            prevMonth={prevMonth}
+            frontBlanks={frontBlanks}
+            key={blank * Math.random()}
+          />
+        )}
 
-      />)}
+      {monthDays
+        .map(day =>
+          <MonthDay
+            day={day}
+            frontBlanks={frontBlanks}
+            currentDay={currentDay}
+            key={day}
+          />
+        )}
 
-      {monthDays.map(day => <MonthDay
-        day={day}
-        frontBlanks={frontBlanks}
-        currentDay={currentDay}
-        showModal={showModal}
-      />)}
-
-      {backBlanks.map(blnk => <BackBlank
-        blnk={blnk}
-        monthDays={monthDays}
-      />)}
+      {backBlanks
+        .map(blnk =>
+          <BackBlank
+            blnk={blnk}
+            monthDays={monthDays}
+            key={blnk * Math.random()}
+          />
+        )}
 
       <Modal show={show} handleClose={hideModal} />
     </div>
