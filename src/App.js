@@ -9,10 +9,10 @@ export default function App() {
     const [currentDate, setCurrentDate] = useState(moment().format('YYYY-MM-DD'))
 
     return (
-        <>
+        <div>
             <DatePicker currentDate={currentDate} setCurrentDate={setCurrentDate} />
             <Month currentDate={currentDate} setCurrentDate={setCurrentDate} />
-        </>
+        </div>
     )
 
 }
