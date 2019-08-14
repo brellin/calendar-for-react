@@ -9,7 +9,6 @@ export default props => {
             style={{
                 gridArea: `day${props.frontBlanks.length + props.day}`
             }}
-            key={props.day}
         >{props.day}</div>
     )
 

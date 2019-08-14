@@ -5,14 +5,16 @@ import './BackBlanks.scss'
 
 export default props => {
 
+    const blnk = props.blnk + 1
+
     return (
         <div
             className="day blank"
             style={{
-                gridArea: `day${props.blnk + props.monthDays + 1}`
+                gridArea: `day${blnk + props.monthDays}`
             }}
-            key={props.blnk * Math.random()}
-        >{props.blnk + 1}</div>
+            onClick={() => console.log(blnk)}
+        >{blnk}</div>
     )
 
 }

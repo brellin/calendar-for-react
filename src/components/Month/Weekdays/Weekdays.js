@@ -11,7 +11,6 @@ export default props => {
                 color: 'white',
                 background: props.background || props.backgroundColor || 'blue'
             }}
-            key={props.day}
         >{props.day}</div>
     )
 }
