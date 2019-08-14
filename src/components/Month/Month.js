@@ -48,6 +48,7 @@ export default function Month(props) {
             frontBlanks={frontBlanks}
             currentDay={currentDay}
             key={day}
+            showModal={showModal}
           />
         )}
 
