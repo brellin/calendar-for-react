@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Weekday } from './Weekdays'
 import monthVars from './vars'
 import './Month.scss'
 
@@ -12,14 +12,7 @@ export default function Month(props) {
     <div className="Month">
 
       {weekdays.map(day => (
-        <div
-          className='day-name'
-          style={{
-            gridArea: `${day}`,
-            background: props.background || props.backgroundColor || 'linear-gradient(blue, lightslategrey)'
-          }}
-          key={day}
-        >{day}</div>
+        <Weekday day={day} />
       ))}
 
       {frontBlanks.map(blnk => (
