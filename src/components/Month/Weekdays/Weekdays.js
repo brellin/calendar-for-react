@@ -1,6 +1,8 @@
 import React from 'react'
 
-export const Weekday = (props) => {
+import './Weekdays.scss'
+
+export default props => {
     return (
         <div
             className='day-name'

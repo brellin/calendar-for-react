@@ -1,5 +1,6 @@
 import React from 'react'
-import { Weekday } from './Weekdays'
+
+import Weekday from './Weekdays/Weekdays'
 import monthVars from './vars'
 import './Month.scss'
 
@@ -11,9 +12,7 @@ export default function Month(props) {
 
     <div className="Month">
 
-      {weekdays.map(day => (
-        <Weekday day={day} />
-      ))}
+      {weekdays.map(day => <Weekday day={day} />)}
 
       {frontBlanks.map(blnk => (
         <div
