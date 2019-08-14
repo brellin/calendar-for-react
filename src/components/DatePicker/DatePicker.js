@@ -15,7 +15,7 @@ export default function DatePicker(props) {
     return (
         <form className='DatePicker' onSubmit={submit}>
             <input
-                type='date'
+                type={props.week ? 'datetime-local' : 'date'}
                 name='date'
                 onChange={handleChanges}
                 defaultValue={moment(props.currentDate).format('YYYY-MM-DD')}

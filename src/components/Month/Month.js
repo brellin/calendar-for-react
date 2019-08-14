@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import moment from 'moment'
 
 import Weekday from './Weekdays'
 import FrontBlank from './FrontBlanks'
@@ -12,16 +13,10 @@ import './Month.scss'
 
 export default function Month(props) {
 
-
   const [show, setShow] = useState(false)
+  const [selected, setSelected] = useState(moment())
 
-  const showModal = () => {
-    setShow(!show);
-  };
-
-  const hideModal = () => {
-    setShow(false);
-  };
+  const showModal = () => setShow(!show)
 
   const { prevMonth, frontBlanks, backBlanks, monthDays, weekdays, currentDay } = monthVars(props.currentDate)
 
@@ -29,7 +24,15 @@ export default function Month(props) {
 
     <div className="Month">
 
-      {weekdays.map(day => <Weekday day={day} key={day} />)}
+      <h1 style={{ gridArea: 'title' }}>{moment(props.currentDate).format('MMMM YYYY')}</h1>
+
+      {weekdays
+        .map(day =>
+          <Weekday
+            day={day}
+            key={day}
+          />
+        )}
 
       {frontBlanks
         .map(blank =>
@@ -38,6 +41,8 @@ export default function Month(props) {
             prevMonth={prevMonth}
             frontBlanks={frontBlanks}
             key={blank * Math.random()}
+            setCurrentDate={props.setCurrentDate}
+            month={moment(props.currentDate).subtract(1, 'month').format('YYYY-MM')}
           />
         )}
 
@@ -49,6 +54,8 @@ export default function Month(props) {
             currentDay={currentDay}
             key={day}
             showModal={showModal}
+            setSelected={setSelected}
+            currentDate={props.currentDate}
           />
         )}
 
@@ -58,10 +65,18 @@ export default function Month(props) {
             blnk={blnk}
             monthDays={monthDays}
             key={blnk * Math.random()}
+            setCurrentDate={props.setCurrentDate}
+            month={moment(props.currentDate).add(1, 'month').format('YYYY-MM')}
           />
         )}
 
-      <Modal show={show} handleClose={hideModal} />
+      <Modal
+        show={show}
+        showModal={showModal}
+        selected={selected}
+        setSelected={setSelected}
+      />
+
     </div>
 
   )

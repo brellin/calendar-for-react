@@ -6,7 +6,7 @@ import DatePicker from './components/DatePicker'
 
 export default function App() {
 
-    const [currentDate, setCurrentDate] = useState(moment())
+    const [currentDate, setCurrentDate] = useState(moment().format('YYYY-MM-DD'))
 
     return (
         <>
