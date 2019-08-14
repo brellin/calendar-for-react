@@ -30,26 +30,15 @@
       background: #a1a1a1;
     }
 
-    &.blank{
-      color: gray;
-      background: #d3d3d3;
-      z-index: 1;
-    transition: .3s ease;
-
-      &:hover{
-        background: #c0c0c0;
-        color: gray;
-      }
-    }
-
     &.active{
       color: blueviolet;
       background: #0000ff55;
-    transition: .3s ease;
+      transition: .3s ease;
 
       &:hover{
         background: #0000ff77;
       }
+
     }
 
   }

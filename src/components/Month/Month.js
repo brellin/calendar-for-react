@@ -1,6 +1,9 @@
 import React from 'react'
 
-import Weekday from './Weekdays/Weekdays'
+import Weekday from './Weekdays'
+import FrontBlank from './FrontBlanks'
+import MonthDay from './MonthDays'
+import BackBlank from './BackBlanks'
 import monthVars from './vars'
 import './Month.scss'
 
@@ -14,35 +17,22 @@ export default function Month(props) {
 
       {weekdays.map(day => <Weekday day={day} />)}
 
-      {frontBlanks.map(blnk => (
-        <div
-          className='day blank'
-          style={{
-            gridArea: `day${blnk + 1}`
-          }}
-          key={blnk * Math.random()}
-        >{prevMonth - (frontBlanks.length - 1) + blnk}</div>
-      ))}
+      {frontBlanks.map(blank => <FrontBlank
+        blank={blank}
+        prevMonth={prevMonth}
+        frontBlanks={frontBlanks}
+      />)}
 
-      {monthDays.map(day => (
-        <div
-          className={`day${currentDay === day + '' ? ' active' : ''}`}
-          style={{
-            gridArea: `day${frontBlanks.length + day}`
-          }}
-          key={day}
-        >{day}</div>
-      ))}
+      {monthDays.map(day => <MonthDay
+        day={day}
+        frontBlanks={frontBlanks}
+        currentDay={currentDay}
+      />)}
 
-      {backBlanks.map(blnk => (
-        <div
-          className="day blank"
-          style={{
-            gridArea: `day${blnk + monthDays + 1}`
-          }}
-          key={blnk * Math.random()}
-        >{blnk + 1}</div>
-      ))}
+      {backBlanks.map(blnk => <BackBlank
+        blnk={blnk}
+        monthDays={monthDays}
+      />)}
 
     </div>
 

@@ -8,7 +8,8 @@ export default props => {
             className='day-name'
             style={{
                 gridArea: `${props.day}`,
-                background: props.background || props.backgroundColor || 'linear-gradient(blue, lightslategrey)'
+                color: 'white',
+                background: props.background || props.backgroundColor || 'blue'
             }}
             key={props.day}
         >{props.day}</div>
