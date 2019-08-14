@@ -14,9 +14,7 @@ export default function Month(props) {
 
   const [show, setShow] = useState(false)
 
-  const showModal = () => {
-    setShow(!show)
-  }
+  const showModal = () => setShow(!show)
 
   const { prevMonth, frontBlanks, backBlanks, monthDays, weekdays, currentDay } = monthVars(props.currentDate)
 
@@ -64,7 +62,7 @@ export default function Month(props) {
 
       <Modal
         show={show}
-        handleClose={showModal}
+        showModal={showModal}
       />
 
     </div>
