@@ -1,26 +1,14 @@
 import React, { useState } from 'react'
 import moment from 'moment'
 
+import { monthVars } from './month'
 import './App.scss'
 
 function App(props) {
 
-  const [dateObj, setDateObj] = useState(moment())
+  const [currentDate, setCurrentDate] = useState(moment())
 
-  const prevMonth = moment(dateObj).subtract(1, 'month').daysInMonth()
-
-  const firstDoM = moment(dateObj).startOf('month').format('d')
-
-  const frontBlanks = []
-  for (let i = 0; i < firstDoM; i++) frontBlanks.push(i)
-
-  const daysInMonth = moment(dateObj).daysInMonth()
-
-  const backBlanks = []
-  for (let i = 0; i < (42 - daysInMonth - frontBlanks.length); i++) backBlanks.push(i)
-
-  const monthDays = []
-  for (let i = 1; i <= daysInMonth; i++) monthDays.push(i)
+  const { prevMonth, frontBlanks, backBlanks, monthDays } = monthVars(currentDate)
 
   return (
 
