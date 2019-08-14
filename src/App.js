@@ -8,6 +8,8 @@ export default function App() {
 
     const [currentDate, setCurrentDate] = useState(moment())
 
+    console.log(currentDate)
+
     return (
         <>
             <DatePicker currentDate={currentDate} setCurrentDate={setCurrentDate} />
