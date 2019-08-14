@@ -12,7 +12,6 @@ import './Month.scss'
 
 export default function Month(props) {
 
-
   const [show, setShow] = useState(false)
 
   const showModal = () => {
