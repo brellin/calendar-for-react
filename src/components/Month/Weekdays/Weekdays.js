@@ -9,8 +9,8 @@ export default props => {
             className='day-name'
             style={{
                 gridArea: `${props.day}`,
-                color: 'white',
-                background: props.background || props.backgroundColor || 'blue'
+                color: 'black',
+                background: props.background || props.backgroundColor
             }}
         >{props.day}</div>
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import moment from 'moment'
 
-import './Modal.scss'
+import './modal.scss'
 
 const Modal = props => {
 

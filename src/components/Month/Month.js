@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import moment from 'moment'
 
+import DatePicker from '../DatePicker'
 import Weekday from './Weekdays'
 import FrontBlank from './FrontBlanks'
 import MonthDay from './MonthDays'
@@ -24,8 +25,23 @@ export default function Month(props) {
 
     <div className="Month">
 
-      <h1 style={{ gridArea: 'title' }}>{moment(props.currentDate).format('MMMM YYYY')}</h1>
-
+      <h3 style={{ gridArea: 'title' }}>
+        <button
+          className='next'
+          onClick={() => props.setCurrentDate(moment(props.currentDate).subtract(1, 'month'))}
+          >
+          {'<'}
+        </button>
+        {moment(props.currentDate).format('MMMM YYYY')}
+        <button
+          className='next'
+          onClick={() => props.setCurrentDate(moment(props.currentDate).add(1, 'month'))}
+          >
+          {'>'}
+        </button>
+        <DatePicker currentDate={props.currentDate} setCurrentDate={props.setCurrentDate}/>
+      </h3>
+     
       {weekdays
         .map(day =>
           <Weekday
