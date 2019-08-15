@@ -1,4 +1,22 @@
 .DatePicker{
-    margin: 5vh auto 0;
+    margin: 1vh auto 0;
     width: max-content;
+    display: flex;
+    flex-direction: column;
+
+    input{
+        border-radius: 360px;
+        border: none;
+    }
+
+    button {
+    border: none;
+    border-radius: 360px;
+    background: blue;
+    color: white;
+    width: auto;
 }
+
+
+}
+
