@@ -98,6 +98,19 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
+var _Modal = _interopRequireDefault(require("./Modal"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = _Modal.default;
+exports.default = _default;
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
 var _react = _interopRequireDefault(require("react"));
 
 var _moment = _interopRequireDefault(require("moment"));
@@ -247,7 +260,7 @@ var _MonthDays = _interopRequireDefault(require("./MonthDays"));
 
 var _BackBlanks = _interopRequireDefault(require("./BackBlanks"));
 
-var _Modal = _interopRequireDefault(require("../Modal/Modal"));
+var _Modal = _interopRequireDefault(require("../Modal"));
 
 var _vars = _interopRequireDefault(require("./vars"));
 

@@ -5,7 +5,7 @@ import Weekday from './Weekdays'
 import FrontBlank from './FrontBlanks'
 import MonthDay from './MonthDays'
 import BackBlank from './BackBlanks'
-import Modal from '../Modal/Modal'
+import Modal from '../Modal'
 import monthVars from './vars'
 import './Month.scss'
 
