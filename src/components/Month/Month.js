@@ -10,8 +10,6 @@ import Modal from '../Modal'
 import monthVars from './vars'
 import './Month.scss'
 
-
-
 export default function Month(props) {
 
   const [show, setShow] = useState(false)
@@ -25,23 +23,21 @@ export default function Month(props) {
 
     <div className="Month">
 
-      <h3 style={{ gridArea: 'title' }}>
-        <button
-          className='next'
-          onClick={() => props.setCurrentDate(moment(props.currentDate).subtract(1, 'month'))}
-          >
-          {'<'}
-        </button>
-        {moment(props.currentDate).format('MMMM YYYY')}
-        <button
-          className='next'
-          onClick={() => props.setCurrentDate(moment(props.currentDate).add(1, 'month'))}
-          >
-          {'>'}
-        </button>
-        <DatePicker currentDate={props.currentDate} setCurrentDate={props.setCurrentDate}/>
-      </h3>
-     
+      <div className="top" style={{ gridArea: 'title' }}>
+        <div className="title">
+          <button
+            className='next'
+            onClick={() => props.setCurrentDate(moment(props.currentDate).subtract(1, 'month'))}
+          >{'<'}</button>
+          <h3>{moment(props.currentDate).format('MMMM YYYY')}</h3>
+          <button
+            className='next'
+            onClick={() => props.setCurrentDate(moment(props.currentDate).add(1, 'month'))}
+          >{'>'}</button>
+        </div>
+        <DatePicker currentDate={props.currentDate} setCurrentDate={props.setCurrentDate} />
+      </div>
+
       {weekdays
         .map(day =>
           <Weekday
