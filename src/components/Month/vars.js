@@ -2,7 +2,7 @@ import moment from 'moment'
 
 export default date => {
 
-    const weekdays = moment.weekdays()
+    const weekdays = moment.weekdaysShort()
 
     const prevMonth = moment(date).subtract(1, 'month').daysInMonth()// Number of days in previous month
 

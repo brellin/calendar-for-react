@@ -19,6 +19,7 @@ export default function DatePicker(props) {
                 name='date'
                 onChange={handleChanges}
                 defaultValue={moment(props.currentDate).format('YYYY-MM-DD')}
+                id='dp'
             />
             <button type="submit">Change Date</button>
         </form>
