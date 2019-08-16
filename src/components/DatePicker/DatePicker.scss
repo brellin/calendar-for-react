@@ -6,9 +6,18 @@
 
     input{
         position: relative;
-        left: 27.5px;
+        left: 15px;
         border: none;
         cursor: pointer;
+
+        &::-webkit-clear-button {
+            display: none;
+        }
+
+        &::-webkit-calendar-picker-indicator {
+            display: none;
+        }
+
     }
 
     button{
