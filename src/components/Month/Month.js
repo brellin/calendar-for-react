@@ -10,7 +10,12 @@ import Modal from '../Modal'
 import monthVars from './vars'
 import './Month.scss'
 
+
+
 export default function Month(props) {
+
+ 
+
 
   const [show, setShow] = useState(false)
   const [selected, setSelected] = useState(moment())
@@ -35,7 +40,7 @@ export default function Month(props) {
             onClick={() => props.setCurrentDate(moment(props.currentDate).add(1, 'month'))}
           >{'>'}</button>
         </div>
-        <DatePicker currentDate={props.currentDate} setCurrentDate={props.setCurrentDate} />
+        <DatePicker id='dp' currentDate={props.currentDate} setCurrentDate={props.setCurrentDate} />
       </div>
 
       {weekdays
