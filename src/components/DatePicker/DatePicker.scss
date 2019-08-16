@@ -25,20 +25,19 @@
 
     }
 
-    button{
-        border: none;
-        border-radius: 50px;
-        background: #BB1333;
-        margin: 0 auto;
-        color: white;
-        width: max-content;
-        cursor: pointer;
-        transition: .3s ease;
-
-        &:hover{
-            transform: scale(1.1);
-        }
-    }
-
 }
 
+button{
+    border: none;
+    border-radius: 50px;
+    background: #BB1333;
+    margin: 12.5px auto 0;
+    color: white;
+    width: max-content;
+    cursor: pointer;
+    transition: .3s ease;
+
+    &:hover{
+        transform: scale(1.1);
+    }
+}

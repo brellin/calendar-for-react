@@ -94,6 +94,11 @@
 
     }
 
+    &.selected{
+        background: #a1a1a1;
+        border-radius: 15px;
+    }
+
   }
 
 }

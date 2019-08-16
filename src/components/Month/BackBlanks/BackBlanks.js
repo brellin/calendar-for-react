@@ -9,7 +9,7 @@ export default props => {
         <div
             className="day blank"
             style={{ gridArea: `day${blnk + props.monthDays}` }}
-            onClick={() => props.setCurrentDate(moment(`${props.month}-${blnk}`))}
+            onClick={() => props.setSelected(moment(`${props.month}-${blnk}`).format('YYYY-MM-DD'))}
         >{blnk}</div>
     )
 

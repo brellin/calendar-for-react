@@ -18,6 +18,8 @@ export default function Month(props) {
 
   const { prevMonth, frontBlanks, backBlanks, monthDays, weekdays, currentDay } = monthVars(props.currentDate, props.selected)
 
+  console.log(props.selected)
+
   return (
 
     <div className="Month">
@@ -52,8 +54,8 @@ export default function Month(props) {
             prevMonth={prevMonth}
             frontBlanks={frontBlanks}
             key={blank * Math.random()}
-            setCurrentDate={props.setCurrentDate}
-            month={moment(props.currentDate).subtract(1, 'month').format('YYYY-MM')}
+            setSelected={props.setSelected}
+            month={moment(props.selected).subtract(1, 'month').format('YYYY-MM')}
           />
         )}
 
@@ -77,8 +79,8 @@ export default function Month(props) {
             blnk={blnk}
             monthDays={monthDays}
             key={blnk * Math.random()}
-            setCurrentDate={props.setCurrentDate}
-            month={moment(props.currentDate).add(1, 'month').format('YYYY-MM')}
+            setSelected={props.setSelected}
+            month={moment(props.selected).add(1, 'month').format('YYYY-MM')}
           />
         )}
 
