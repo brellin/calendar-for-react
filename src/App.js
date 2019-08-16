@@ -2,17 +2,20 @@ import React, { useState } from 'react'
 import moment from 'moment'
 
 import Month from './components/Month'
-import DatePicker from './components/DatePicker'
 
 export default function App() {
 
-    const [currentDate, setCurrentDate] = useState(moment().format('YYYY-MM-DD'))
+    const currentDate = moment().format('YYYY-MM-DD')
+
+    const [selected, setSelected] = useState(currentDate)
 
     return (
-        <div>
-            <DatePicker currentDate={currentDate} setCurrentDate={setCurrentDate} />
-            <Month currentDate={currentDate} setCurrentDate={setCurrentDate} />
-        </div>
+        <Month
+            currentDate={currentDate}
+            selected={selected}
+            setSelected={setSelected}
+            style={{ height: '20%' }}
+        />
     )
 
 }
