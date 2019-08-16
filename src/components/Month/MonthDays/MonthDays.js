@@ -3,19 +3,21 @@ import moment from 'moment'
 
 export default props => {
 
-    const currentMaY = moment(props.currentDate).format('YYYY-MM')
+    const currentMaY = moment(props.selected).format('YYYY-MM')
 
     return (
+
         <div
             onClick={() => {
                 props.setSelected(moment(`${currentMaY}-${props.day}`))
                 props.showModal()
             }}
-            className={`day${props.currentDay === props.day + '' ? ' active' : ''}`}
+            className={`day${props.currentDate === currentMaY + '-' + props.day ? ' active' : ''}`}
             style={{
                 gridArea: `day${props.frontBlanks.length + props.day}`
             }}
         >{props.day}</div>
+
     )
 
 }

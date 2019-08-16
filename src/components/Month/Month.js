@@ -10,19 +10,13 @@ import Modal from '../Modal'
 import monthVars from './vars'
 import './Month.scss'
 
-
-
 export default function Month(props) {
 
- 
-
-
   const [show, setShow] = useState(false)
-  const [selected, setSelected] = useState(moment())
 
   const showModal = () => setShow(!show)
 
-  const { prevMonth, frontBlanks, backBlanks, monthDays, weekdays, currentDay } = monthVars(props.currentDate)
+  const { prevMonth, frontBlanks, backBlanks, monthDays, weekdays, currentDay } = monthVars(props.currentDate, props.selected)
 
   return (
 
@@ -32,15 +26,15 @@ export default function Month(props) {
         <div className="title">
           <button
             className='next'
-            onClick={() => props.setCurrentDate(moment(props.currentDate).subtract(1, 'month'))}
+            onClick={() => props.setSelected(moment(props.selected).subtract(1, 'month').format('YYYY-MM-DD'))}
           >{'<'}</button>
-          <h3>{moment(props.currentDate).format('MMMM YYYY')}</h3>
+          <h3>{moment(props.selected).format('MMMM YYYY')}</h3>
           <button
             className='next'
-            onClick={() => props.setCurrentDate(moment(props.currentDate).add(1, 'month'))}
+            onClick={() => props.setSelected(moment(props.selected).add(1, 'month').format('YYYY-MM-DD'))}
           >{'>'}</button>
         </div>
-        <DatePicker id='dp' currentDate={props.currentDate} setCurrentDate={props.setCurrentDate} />
+        <DatePicker id='dp' currentDate={props.currentDate} setCurrentDate={props.setSelected} />
       </div>
 
       {weekdays
@@ -71,7 +65,8 @@ export default function Month(props) {
             currentDay={currentDay}
             key={day}
             showModal={showModal}
-            setSelected={setSelected}
+            selected={props.selected}
+            setSelected={props.setSelected}
             currentDate={props.currentDate}
           />
         )}
@@ -90,8 +85,8 @@ export default function Month(props) {
       <Modal
         show={show}
         showModal={showModal}
-        selected={selected}
-        setSelected={setSelected}
+        selected={props.selected}
+        setSelected={props.setSelected}
       />
 
     </div>

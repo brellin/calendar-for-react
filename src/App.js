@@ -5,12 +5,15 @@ import Month from './components/Month'
 
 export default function App() {
 
-    const [currentDate, setCurrentDate] = useState(moment().format('YYYY-MM-DD'))
+    const currentDate = moment().format('YYYY-MM-DD')
+
+    const [selected, setSelected] = useState(currentDate)
 
     return (
         <Month
             currentDate={currentDate}
-            setCurrentDate={setCurrentDate}
+            selected={selected}
+            setSelected={setSelected}
             style={{ height: '20%' }}
         />
     )
