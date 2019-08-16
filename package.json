@@ -11,8 +11,8 @@
     "react-scripts": "3.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "./node_modules/.bin/babel src --out-file index.js"
+    "start": "webpack --watch",
+    "build": "webpack"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,15 +30,26 @@
     ]
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.5.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^3.2.0",
     "customHooks": "https://github.com/brellin/customHooks",
+    "mini-css-extract-plugin": "^0.8.0",
     "moment": "^2.24.0",
     "node-sass": "^4.12.0",
-    "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-scripts": "3.1.0"
+    "react-scripts": "3.1.0",
+    "sass-loader": "^7.2.0",
+    "style-loader": "^1.0.0",
+    "webpack-cli": "^3.3.6"
+  },
+  "dependencies": {
+    "react": "^15.5.4",
+    "webpack": "^4.8.3"
   }
 }

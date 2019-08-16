@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, Fragment } from 'react'
 import { useForm } from 'customHooks'
 import moment from 'moment'
 
@@ -16,7 +16,7 @@ export default function DatePicker(props) {
     }
 
     return (
-        <>
+        <Fragment>
             <form className='DatePicker' onSubmit={submit} style={{ display: selectDate ? 'flex' : 'none' }}>
                 <input
                     type={props.week ? 'datetime-local' : 'date'}
@@ -28,6 +28,6 @@ export default function DatePicker(props) {
                 <button type="submit">Submit</button>
             </form>
             <button onClick={() => setSelectDate(!selectDate)} style={{ display: selectDate ? 'none' : 'block' }}>Change Date</button>
-        </>
+        </Fragment>
     )
 }
