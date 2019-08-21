@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import App from './App'
+import Cal from './Cal'
 import './index.css'
 
 ReactDOM.render(
-  <App />,
+  <Cal />,
   document.getElementById('root')
 )

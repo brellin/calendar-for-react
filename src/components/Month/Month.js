@@ -1,20 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import moment from 'moment'
 
+import { addMonth, subMonth } from '../../utils'
 import DatePicker from '../DatePicker'
 import Weekday from './Weekdays'
 import FrontBlank from './FrontBlanks'
 import MonthDay from './MonthDays'
 import BackBlank from './BackBlanks'
-import Modal from '../Modal'
 import monthVars from './vars'
 import './Month.scss'
 
 export default function Month(props) {
-
-  const [show, setShow] = useState(false)
-
-  const showModal = () => setShow(!show)
 
   const { prevMonth, frontBlanks, backBlanks, monthDays, weekdays, currentDay } = monthVars(props.currentDate, props.selected)
 
@@ -28,12 +24,12 @@ export default function Month(props) {
         <div className="title">
           <button
             className='next'
-            onClick={() => props.setSelected(moment(props.selected).subtract(1, 'month').format('YYYY-MM-DD'))}
+            onClick={() => props.setSelected(subMonth(props.selected, 1, 'month', true))}
           >{'<'}</button>
           <h3>{moment(props.selected).format('MMMM YYYY')}</h3>
           <button
             className='next'
-            onClick={() => props.setSelected(moment(props.selected).add(1, 'month').format('YYYY-MM-DD'))}
+            onClick={() => props.setSelected(addMonth(props.selected, 1, 'month', true))}
           >{'>'}</button>
         </div>
         <DatePicker id='dp' currentDate={props.currentDate} setCurrentDate={props.setSelected} />
@@ -55,7 +51,7 @@ export default function Month(props) {
             frontBlanks={frontBlanks}
             key={blank * Math.random()}
             setSelected={props.setSelected}
-            month={moment(props.selected).subtract(1, 'month').format('YYYY-MM')}
+            month={subMonth(props.selected, 1, 'month')}
           />
         )}
 
@@ -66,10 +62,11 @@ export default function Month(props) {
             frontBlanks={frontBlanks}
             currentDay={currentDay}
             key={day}
-            showModal={showModal}
             selected={props.selected}
             setSelected={props.setSelected}
             currentDate={props.currentDate}
+            events={props.events}
+            addEvent={props.addEvent}
           />
         )}
 
@@ -80,16 +77,9 @@ export default function Month(props) {
             monthDays={monthDays}
             key={blnk * Math.random()}
             setSelected={props.setSelected}
-            month={moment(props.selected).add(1, 'month').format('YYYY-MM')}
+            month={addMonth(props.selected, 1, 'month')}
           />
         )}
-
-      <Modal
-        show={show}
-        showModal={showModal}
-        selected={props.selected}
-        setSelected={props.setSelected}
-      />
 
     </div>
 

@@ -1,5 +1,6 @@
 import React from 'react'
-import moment from 'moment'
+
+import { momentDate } from '../../../utils'
 
 export default props => {
 
@@ -9,7 +10,7 @@ export default props => {
         <div
             className='day blank'
             style={{ gridArea: `day${props.blank + 1}` }}
-            onClick={() => props.setSelected(moment(`${props.month}-${blank}`).format('YYYY-MM-DD'))}
+            onClick={() => props.setSelected(momentDate(`${props.month}-${blank}`))}
         >{blank}</div>
     )
 
